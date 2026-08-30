@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/x-icon" href="images/logo.svg">  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TLNG — The Last News Games</title>
+<style>
+  :root{
+    --bg-top:#ffb37a;
+    --bg-bottom:#ffe6c9;
+    --ink:#1a1410;
+    --ink-soft:#5c4f45;
+    --accent-purple:#5b21b6;
+    --accent-red:#d7263d;
+    --white:#ffffff;
+    --max-w:1100px;
+    --radius:20px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Segoe UI', Tahoma, Arial, sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2{
+    font-family:Georgia, 'Times New Roman', serif;
+    font-weight:400;
+    line-height:1.05;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  img{max-width:100%; display:block;}
+
+  .container{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    padding:20px 0;
+  }
+  .header-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:700;
+    letter-spacing:1px;
+    font-size:15px;
+  }
+  .logo .mark{width:16px; height:16px; display:inline-block;}
+  .logo .mark img{width:100%; height:100%;}
+
+  .hero-ab{
+    background:linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+    border-radius:var(--radius);
+    margin:0 16px;
+    padding:5px 3px 6px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  /* ---------- NEWS SECTION ---------- */
+  .news-section{
+    padding:56px 0 48px;
+  }
+  .news-section h2{
+    font-size:clamp(1.8rem, 3.5vw, 2.6rem);
+    margin-bottom:32px;
+  }
+  .news-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+    gap:24px;
+  }
+  .news-card{
+    background:linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+    border-radius:16px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+  .news-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+  }
+  .news-card .news-body{
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    flex:1;
+  }
+  .news-card h3{
+    font-size:15px;
+    font-weight:700;
+    line-height:1.3;
+  }
+  .news-card .news-source{
+    font-size:11px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+  }
+  .news-card .news-link{
+    margin-top:auto;
+    font-size:13px;
+    font-weight:700;
+    color:var(--accent-red);
+  }
+  .news-status{
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- CONTACT BAND ---------- */
+  .contact-band{
+    background:linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+    border-radius:var(--radius);
+    margin:32px 16px 0;
+    padding:32px;
+  }
+  .contact-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.5px;
+  }
+  .contact-main{
+    padding:64px 0 24px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+  }
+  .contact-main h2{
+    font-size:clamp(2rem, 4.5vw, 3rem);
+  }
+  .contact-details{
+    text-align:right;
+    font-size:14px;
+  }
+  .contact-details a{
+    display:block;
+    margin-bottom:4px;
+  }
+  .contact-details a:hover{text-decoration:underline;}
+  .socials{
+    display:flex;
+    gap:10px;
+    justify-content:flex-end;
+    margin-top:10px;
+  }
+  .socials a{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px;
+  }
+  .socials a img{width:100%; height:100%; filter:invert(1);}
+
+  footer{
+    text-align:center;
+    padding:24px 0;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:520px){
+    .contact-band{margin:24px 10px 0; padding:24px 20px;}
+    .contact-main{flex-direction:column; align-items:flex-start;}
+    .contact-details{text-align:left;}
+    .socials{justify-content:flex-start;}
+    .container{padding:0 16px;}
+  }
+</style>
+</head>
+<body>
+  <section class="hero-ab">
+    <header>
+      <div class="container header-row">
+        <div class="logo"><a href="index.html"><span class="mark"><img src="images/logo.svg" alt="TLNG"></span> TLNG</a></div>
+      </div>
+    </header>
+  </section>
+
+<section class="news-section">
+  <div class="container">
+    <h2><b>Latest<br>Gaming News</b></h2>
+    <div id="news-container" class="news-grid">
+      <p class="news-status">Loading news...</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-band" id="contact">
+  <div class="contact-top">
+    <div class="logo"><span class="mark"><img src="images/logo.svg" alt="TLNG"></span> TLNG</div>
+    <div>WORK WITH ME</div>
+  </div>
+  <div class="contact-main">
+    <h2>Let's<br>get started.</h2>
+    <div class="contact-details">
+      <a href="mailto:ahmednono685@gmail.com">ahmednono685@gmail.com</a>
+      <span>in Egypt</span>
+      <div class="socials">
+        <a href="#" aria-label="Facebook"><img src="images/facebook.svg" alt=""></a>
+        <a href="#" aria-label="Twitter"><img src="images/twitter.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> TLNG. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  async function loadNews() {
+    const container = document.getElementById('news-container');
+    try {
+      const res = await fetch('/api/news');
+      const news = await res.json();
+      if (!news.length) {
+        container.innerHTML = '<p class="news-status">No news yet — check back after the first update.</p>';
+        return;
+      }
+      container.innerHTML = news.map(item => `
+        <div class="news-card">
+          ${item.image ? `<img src="${item.image}" alt="${item.title}">` : ''}
+          <div class="news-body">
+            <span class="news-source">${item.source}</span>
+            <h3>${item.title}</h3>
+            <a class="news-link" href="${item.link}" target="_blank">Read more →</a>
+          </div>
+        </div>
+      `).join('');
+    } catch (err) {
+      container.innerHTML = '<p class="news-status">Could not load news right now.</p>';
+    }
+  }
+  loadNews();
+</script>
+
+</body>
+</html>
