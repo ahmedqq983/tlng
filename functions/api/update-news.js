@@ -63,11 +63,18 @@ async function fetchAllFeeds() {
 
 // النهاردة الصفحة دي بقت endpoint عادي بيتزار بـ GET، مش scheduled handler
 export async function onRequestGet(context) {
-  const key = new URL(context.request.url).searchParams.get("key");
-  if (key !== SECRET) {
-    return new Response("Unauthorized", { status: 401 });
+  try {
+    const key = new URL(context.request.url).searchParams.get("key");
+    if (key !== SECRET) {
+      return new Response("Unauthorized", { status: 401 });
+    }
+    if (!context.env.NEWS_KV) {
+      return new Response("خطأ: مفيش NEWS_KV متربوط بالمشروع ده", { status: 500 });
+    }
+    const news = await fetchAllFeeds();
+    await context.env.NEWS_KV.put("latest_news", JSON.stringify(news));
+    return new Response("Updated " + news.length + " news items");
+  } catch (err) {
+    return new Response("خطأ: " + err.message + "\n" + err.stack, { status: 500 });
   }
-  const news = await fetchAllFeeds();
-  await context.env.NEWS_KV.put("latest_news", JSON.stringify(news));
-  return new Response("Updated " + news.length + " news items");
 }
