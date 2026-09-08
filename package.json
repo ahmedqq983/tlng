@@ -1,0 +1,15 @@
+{
+  "name": "web_g",
+  "version": "1.0.0",
+  "description": "TLNG News Web App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
